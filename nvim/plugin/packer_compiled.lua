@@ -11,7 +11,7 @@ local no_errors, error_msg = pcall(function()
 
   local time
   local profile_info
-  local should_profile = false
+  local should_profile = true
   if should_profile then
     local hrtime = vim.loop.hrtime
     profile_info = {}
@@ -186,7 +186,6 @@ _G.packer_plugins = {
   },
   ["glow.nvim"] = {
     commands = { "Glow" },
-    config = { "\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugins.configs.glow\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -214,6 +213,11 @@ _G.packer_plugins = {
     path = "/home/udeyx/.local/share/nvim/site/pack/packer/opt/lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["nabla.nvim"] = {
+    loaded = true,
+    path = "/home/udeyx/.local/share/nvim/site/pack/packer/start/nabla.nvim",
+    url = "https://github.com/jbyuki/nabla.nvim"
+  },
   ["null-ls.nvim"] = {
     config = { "\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugins.configs.null\frequire\0" },
     loaded = true,
@@ -231,7 +235,7 @@ _G.packer_plugins = {
     url = "https://github.com/windwp/nvim-autopairs"
   },
   ["nvim-cmp"] = {
-    after = { "nvim-autopairs", "LuaSnip" },
+    after = { "LuaSnip", "nvim-autopairs" },
     config = { "\27LJ\2\n3\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\24plugins.configs.cmp\frequire\0" },
     load_after = {
       ["friendly-snippets"] = true
@@ -361,14 +365,14 @@ if not vim.g.packer_custom_loader_enabled then
   vim.g.packer_custom_loader_enabled = true
 end
 
--- Config for: null-ls.nvim
-time([[Config for null-ls.nvim]], true)
-try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugins.configs.null\frequire\0", "config", "null-ls.nvim")
-time([[Config for null-ls.nvim]], false)
 -- Config for: dashboard-nvim
 time([[Config for dashboard-nvim]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.dashboard\frequire\0", "config", "dashboard-nvim")
 time([[Config for dashboard-nvim]], false)
+-- Config for: null-ls.nvim
+time([[Config for null-ls.nvim]], true)
+try_loadstring("\27LJ\2\n4\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\25plugins.configs.null\frequire\0", "config", "null-ls.nvim")
+time([[Config for null-ls.nvim]], false)
 -- Config for: nvim-lspconfig
 time([[Config for nvim-lspconfig]], true)
 try_loadstring("\27LJ\2\n9\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\30plugins.configs.lspconfig\frequire\0", "config", "nvim-lspconfig")
@@ -393,29 +397,29 @@ time([[Sequenced loading]], false)
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file RunCode lua require("packer.load")({'code_runner.nvim'}, { cmd = "RunCode", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ToggleTerm lua require("packer.load")({'toggleterm.nvim'}, { cmd = "ToggleTerm", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Glow lua require("packer.load")({'glow.nvim'}, { cmd = "Glow", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Telescope lua require("packer.load")({'telescope.nvim'}, { cmd = "Telescope", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
-pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Bdelete lua require("packer.load")({'bufdelete.nvim'}, { cmd = "Bdelete", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Glow lua require("packer.load")({'glow.nvim'}, { cmd = "Glow", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file ToggleTerm lua require("packer.load")({'toggleterm.nvim'}, { cmd = "ToggleTerm", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file NvimTreeToggle lua require("packer.load")({'nvim-tree.lua'}, { cmd = "NvimTreeToggle", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file Bdelete lua require("packer.load")({'bufdelete.nvim'}, { cmd = "Bdelete", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
 time([[Defining lazy-load commands]], false)
 
 -- Keymap lazy-loads
 time([[Defining lazy-load keymaps]], true)
-vim.cmd [[noremap <silent> gb <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)<cr>]]
 vim.cmd [[noremap <silent> gc <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gc", prefix = "" }, _G.packer_plugins)<cr>]]
+vim.cmd [[noremap <silent> gb <cmd>lua require("packer.load")({'Comment.nvim'}, { keys = "gb", prefix = "" }, _G.packer_plugins)<cr>]]
 time([[Defining lazy-load keymaps]], false)
 
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Event lazy-loads
 time([[Defining lazy-load event autocommands]], true)
-vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'friendly-snippets'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
-vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
 vim.cmd [[au BufRead * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufRead *" }, _G.packer_plugins)]]
+vim.cmd [[au BufNewFile * ++once lua require("packer.load")({'nvim-treesitter'}, { event = "BufNewFile *" }, _G.packer_plugins)]]
+vim.cmd [[au InsertEnter * ++once lua require("packer.load")({'friendly-snippets'}, { event = "InsertEnter *" }, _G.packer_plugins)]]
 time([[Defining lazy-load event autocommands]], false)
 vim.cmd("augroup END")
-if should_profile then save_profiles() end
+if should_profile then save_profiles(1) end
 
 end)
 

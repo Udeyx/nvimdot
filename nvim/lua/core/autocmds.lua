@@ -11,3 +11,9 @@ autocmd('VimLeave', {
     pattern = '*',
     command = 'set guicursor=a:ver90',
 })
+
+-- Autocmd for babla
+autocmd('CursorHold',{
+    pattern = '*md',
+    command = "silent! lua require('nabla').popup()",
+})

@@ -1,4 +1,3 @@
---require('impatient')
 local present, impatient = pcall(require, 'impatient')
 
 if present then

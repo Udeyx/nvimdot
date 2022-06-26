@@ -12,6 +12,9 @@ opt.fileencoding = 'utf-8'
 -- enable confirm question
 opt.confirm = true
 
+-- color column to remind Enter
+-- opt.colorcolumn = '62'
+
 -- line number
 opt.number = true
 opt.relativenumber = true
@@ -116,7 +119,7 @@ local default_plugins = {
     'zipPlugin',
 }
 for _, plugin in pairs(default_plugins) do
-    g['did_loaded_' .. plugin] = 1
+    g['loaded_' .. plugin] = 1
 end
 
 -- set leader key

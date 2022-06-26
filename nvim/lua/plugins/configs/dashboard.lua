@@ -5,7 +5,40 @@ if not present then
     return
 end
 
-dashboard.preview_command = 'cat | lolcat -F 0.3'
-dashboard.preview_file_path = '/home/udeyx/Pictures/hydra'
-dashboard.preview_file_height = 12
-dashboard.preview_file_width = 80
+local ascii = {
+    ' ',
+    ' ',
+    '   ⣴⣶⣤⡤⠦⣤⣀⣤⠆     ⣈⣭⣭⣿⣶⣿⣦⣼⣆         ',
+    '    ⠉⠻⢿⣿⠿⣿⣿⣶⣦⠤⠄⡠⢾⣿⣿⡿⠋⠉⠉⠻⣿⣿⡛⣦       ',
+    '          ⠈⢿⣿⣟⠦ ⣾⣿⣿⣷⠄⠄⠄⠄⠻⠿⢿⣿⣧⣄     ',
+    '           ⣸⣿⣿⢧ ⢻⠻⣿⣿⣷⣄⣀⠄⠢⣀⡀⠈⠙⠿⠄    ',
+    '          ⢠⣿⣿⣿⠈  ⠡⠌⣻⣿⣿⣿⣿⣿⣿⣿⣛⣳⣤⣀⣀   ',
+    '   ⢠⣧⣶⣥⡤⢄ ⣸⣿⣿⠘⠄ ⢀⣴⣿⣿⡿⠛⣿⣿⣧⠈⢿⠿⠟⠛⠻⠿⠄  ',
+    '  ⣰⣿⣿⠛⠻⣿⣿⡦⢹⣿⣷   ⢊⣿⣿⡏  ⢸⣿⣿⡇ ⢀⣠⣄⣾⠄   ',
+    ' ⣠⣿⠿⠛⠄⢀⣿⣿⣷⠘⢿⣿⣦⡀ ⢸⢿⣿⣿⣄ ⣸⣿⣿⡇⣪⣿⡿⠿⣿⣷⡄  ',
+    ' ⠙⠃   ⣼⣿⡟  ⠈⠻⣿⣿⣦⣌⡇⠻⣿⣿⣷⣿⣿⣿ ⣿⣿⡇⠄⠛⠻⢷⣄ ',
+    '      ⢻⣿⣿⣄   ⠈⠻⣿⣿⣿⣷⣿⣿⣿⣿⣿⡟ ⠫⢿⣿⡆     ',
+    '       ⠻⣿⣿⣿⣿⣶⣶⣾⣿⣿⣿⣿⣿⣿⣿⣿⡟⢀⣀⣤⣾⡿⠃     ',
+    ' ',
+    ' ',
+    ' ',
+}
+dashboard.custom_header = ascii
+dashboard.custom_center = {
+    {
+        icon = '  ',
+        desc = 'Find File          ',
+        action = 'Telescope',
+    },
+    {
+        icon = '  ',
+        desc = 'Recently Used Files',
+        action = 'Telescope oldfiles',
+    },
+    {
+        icon = '  ',
+        desc = 'Edit keybindings   ',
+        action = 'edit ~/.config/nvim/lua/core/keybindings.lua',
+    },
+}
+dashboard.custom_footer = { 'enjoy neovim' }

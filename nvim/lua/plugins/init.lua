@@ -15,21 +15,19 @@ local plugins = {
     ['arkav/lualine-lsp-progress'] = {
         after = 'nvim-web-devicons',
     },
+    ['jbyuki/nabla.nvim'] = {},
     ['navarasu/onedark.nvim'] = {},
-    ['ellisonleao/glow.nvim'] = {
-        cmd = 'Glow',
-        config = function ()
-            require('plugins.configs.glow')
-        end
-    },
     ['folke/tokyonight.nvim'] = {},
     ['glepnir/dashboard-nvim'] = {
         config = function()
             require('plugins.configs.dashboard')
         end,
     },
+    ['ellisonleao/glow.nvim'] = {
+        cmd = 'Glow',
+    },
     ['numToStr/Comment.nvim'] = {
-        keys = { "gc", "gb" },
+        keys = { 'gc', 'gb' },
         config = function()
             require('plugins.configs.comment')
         end,
@@ -86,7 +84,7 @@ local plugins = {
     },
     ['jose-elias-alvarez/null-ls.nvim'] = {
         config = function()
-            require('plugins.configs.null');
+            require('plugins.configs.null')
         end,
     },
     -- ['tami5/lspsaga.nvim'] = {
