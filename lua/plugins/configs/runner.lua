@@ -13,6 +13,7 @@ local options = {
         java = "cd $dir && javac $fileName && java $fileNameWithoutExt",
 		python = "python3 -u",
 		typescript = "deno run",
+		lua = "lua",
 		rust = "cd $dir && rustc $fileName && $dir/$fileNameWithoutExt",
     }
 }
