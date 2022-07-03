@@ -2,8 +2,8 @@ return {
 	on_setup = function(server)
 		server.setup({
             filetypes = {
-                'markdown',
                 'latex',
+                'plaintex',
             },
 			flags = {
 				debounce_text_changes = 150,
