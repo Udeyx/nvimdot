@@ -1,7 +1,7 @@
 local present, bufferline = pcall(require, 'bufferline')
 
 if not present then
-    vim.notify("can't find bufferline")
+    print "can't find bufferline"
     return
 end
 

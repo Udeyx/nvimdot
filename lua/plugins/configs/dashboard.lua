@@ -1,7 +1,7 @@
 local present, dashboard = pcall(require, 'dashboard')
 
 if not present then
-    print("can't find dashboard")
+    print "can't find dashboard"
     return
 end
 

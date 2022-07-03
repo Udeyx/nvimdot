@@ -145,6 +145,4 @@ map('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(v
 -- Packer
 map('n', '<leader>p', ':PackerSync<CR>', opt)
 
--- Glow
-map('n', '<leader>g', ':w<CR>:Glow<CR>', opt)
 return M

@@ -126,6 +126,4 @@ end
 g.mapleader = ' '
 
 -- set colorscheme
-g.tokyonight_transparent = true
-g.tokyonight_transparent_sidebar = true
 vim.cmd([[colorscheme tokyonight]])

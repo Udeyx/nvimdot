@@ -1,12 +1,13 @@
 local present, treesitter = pcall(require, 'nvim-treesitter.configs')
 
 if not present then
-    vim.notify("can't find treesitter")
+    print "can't find treesitter"
     return
 end
 
 local options = {
     ensure_installed = {
+        'bash',
         'c',
         'cpp',
         'go',

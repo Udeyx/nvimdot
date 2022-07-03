@@ -1,7 +1,7 @@
 local present, telescope = pcall(require, 'telescope')
 
 if not present then
-    vim.notify("can't find telescope")
+    print "can't find telescope"
     return
 end
 

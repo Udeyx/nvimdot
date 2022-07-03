@@ -1,7 +1,7 @@
 local present, tree = pcall(require, 'nvim-tree')
 
 if not present then
-    print("can't find tree")
+    print "can't find tree"
     return
 end
 

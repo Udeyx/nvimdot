@@ -1,10 +1,10 @@
 local present, cmp = pcall(require, 'cmp')
 if not present then
-    print("can't find cmp")
+    print "can't find cmp"
     return
 end
 
-cmp.setup({
+cmp.setup {
     snippet = {
         expand = function(args)
             -- Use luasnip as completion engine
@@ -19,7 +19,7 @@ cmp.setup({
 
     -- 快捷键设置
     mapping = require('core.keybindings').cmp(cmp),
-})
+}
 
 -- / 查找模式使用 buffer 源
 cmp.setup.cmdline('/', {

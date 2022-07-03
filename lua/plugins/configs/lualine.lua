@@ -1,7 +1,7 @@
 local present, lualine = pcall(require, 'lualine')
 
 if not present then
-    vim.notify("can't find lualine")
+    print "can't find lualine"
     return
 end
 

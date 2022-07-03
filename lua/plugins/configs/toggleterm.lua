@@ -1,7 +1,7 @@
 local present, toggleterm = pcall(require, 'toggleterm')
 
 if not present then
-    print("can't find toggleterm")
+    print "can't find toggleterm"
     return
 end
 

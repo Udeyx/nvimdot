@@ -3,7 +3,7 @@ local autocmd = vim.api.nvim_create_autocmd
 -- Don't auto commenting new lines
 autocmd('BufEnter', {
     pattern = '*',
-    command = 'set fo-=c fo-=r fo-=o',
+    command = 'set fo-=c fo-=r fo-=o fo-=O',
 })
 
 -- Let cursor's shape return to beam after quit nvim
@@ -12,8 +12,8 @@ autocmd('VimLeave', {
     command = 'set guicursor=a:ver90',
 })
 
--- Autocmd for babla
-autocmd('CursorHold',{
-    pattern = '*md',
-    command = "silent! lua require('nabla').popup()",
+-- Auto format when save
+autocmd('BufWrite', {
+    pattern = '*',
+    command = 'lua vim.lsp.buf.formatting()',
 })
