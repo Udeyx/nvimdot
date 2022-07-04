@@ -11,9 +11,3 @@ autocmd('VimLeave', {
     pattern = '*',
     command = 'set guicursor=a:ver90',
 })
-
--- Auto format when save
-autocmd('BufWrite', {
-    pattern = '*',
-    command = 'lua vim.lsp.buf.formatting()',
-})
