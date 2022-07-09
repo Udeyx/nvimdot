@@ -136,7 +136,7 @@ end
 map('n', '<leader>t', ':ToggleTerm<CR>', opt)
 
 -- Code Runner
-map('n', '<leader>r', ':RunCode<CR>', opt)
+map('n', '<leader>r', ':w<CR>:RunCode<CR>', opt)
 
 -- Comment
 --map('n','<leader>/',function()require("Comment.api").toggle_current_linewise()end,opt)
