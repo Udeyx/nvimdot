@@ -81,23 +81,23 @@ M.cmp = function(cmp)
     end
     local luasnip = require('luasnip')
     return {
-        -- 出现补全
+        -- show completion tips
         ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        -- 取消
+        -- hide completion tips
         ['<A-,>'] = cmp.mapping({
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
         }),
-        -- 上一个
+        -- jump to the above tip
         ['<C-k>'] = cmp.mapping.select_prev_item(),
-        -- 下一个
+        -- jump to the below tip
         ['<C-j>'] = cmp.mapping.select_next_item(),
-        -- 确认
+        -- confirm your selection
         ['<CR>'] = cmp.mapping.confirm({
             select = true,
             behavior = cmp.ConfirmBehavior.Replace,
         }),
-        -- 如果窗口内容太多，可以滚动
+        -- moving fast in the completion menu
         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
         -- Super Tab
