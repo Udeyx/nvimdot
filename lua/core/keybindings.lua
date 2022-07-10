@@ -2,12 +2,6 @@
 local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
 
--- shift between windows
-map('n', '<A-h>', '<C-w>h', opt)
-map('n', '<A-j>', '<C-w>j', opt)
-map('n', '<A-k>', '<C-w>k', opt)
-map('n', '<A-l>', '<C-w>l', opt)
-
 -- move fast
 map('n', '<C-j>', '5j', opt)
 map('n', '<C-k>', '5k', opt)
