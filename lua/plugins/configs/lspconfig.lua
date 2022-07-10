@@ -14,19 +14,16 @@ end
 lspinstaller.setup {}
 
 local servers = {
-    sumneko_lua = require 'plugins.configs.servers.lua',
-    clangd = require 'plugins.configs.servers.c',
-    texlab = require 'plugins.configs.servers.latex',
-    pyright = require 'plugins.configs.servers.python',
-    bashls = require 'plugins.configs.servers.bash',
-    jsonls = require 'plugins.configs.servers.json',
-    yamlls = require 'plugins.configs.servers.yaml',
+    sumneko_lua = {},
+    clangd = {},
+    texlab = {},
+    pyright = {},
+    bashls = {},
+    jsonls = {},
+    yamlls = {},
 }
 
 for name, config in pairs(servers) do
-    if config ~= nil and type(config) == 'table' then
-        config.on_setup(lspconfig[name])
-    else
-        lspconfig[name].setup {}
-    end
+    table.insert(config,require('core.utils').on_attach)
+    lspconfig[name].setup(config)
 end

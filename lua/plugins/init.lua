@@ -111,4 +111,4 @@ local plugins = {
     },
 }
 
-require('core.packer').run(plugins)
+require('core.utils').run(plugins)
