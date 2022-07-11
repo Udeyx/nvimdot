@@ -15,7 +15,7 @@ cmp.setup {
         { name = 'nvim_lsp' },
         -- Use luasnip as completion source
         { name = 'luasnip' },
-    }, { { name = 'buffer' }, { name = 'path' } }),
+    }, { { name = 'buffer' }, { name = 'path' } },{ name = 'cmp_tabnine' }),
 
     -- 快捷键设置
     mapping = require('core.keybindings').cmp(cmp),
