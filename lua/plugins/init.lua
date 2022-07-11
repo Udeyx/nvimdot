@@ -21,7 +21,12 @@ local plugins = {
     ['famiu/bufdelete.nvim'] = { cmd = 'Bdelete' },
 
     -- User Interface
-    ['folke/tokyonight.nvim'] = {},
+    ['folke/tokyonight.nvim'] = {
+        config = function ()
+            require 'plugins.configs.tokyonight'
+            
+        end
+    },
     ['kyazdani42/nvim-web-devicons'] = { after = 'plenary.nvim' },
     ['arkav/lualine-lsp-progress'] = { after = 'nvim-web-devicons' },
     ['glepnir/dashboard-nvim'] = {

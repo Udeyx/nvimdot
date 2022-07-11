@@ -11,17 +11,18 @@ cmp.setup {
             require('luasnip').lsp_expand(args.body)
         end,
     },
-    sources = cmp.config.sources({
-        { name = 'nvim_lsp' },
-        -- Use luasnip as completion source
-        { name = 'luasnip' },
-    }, { { name = 'buffer' }, { name = 'path' } },{ name = 'cmp_tabnine' }),
-
-    -- 快捷键设置
+    -- keybindings
     mapping = require('core.keybindings').cmp(cmp),
+    sources = cmp.config.sources {
+        { name = 'nvim_lsp' },
+        { name = 'luasnip' },
+        { name = 'buffer' },
+        { name = 'path' },
+        { name = 'cmp_tabnine' },
+    },
 }
 
--- / 查找模式使用 buffer 源
+-- Use buffer source for '/'
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
@@ -29,7 +30,7 @@ cmp.setup.cmdline('/', {
     },
 })
 
--- : 命令行模式中使用 path 和 cmdline 源.
+-- Use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources({

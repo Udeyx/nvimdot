@@ -77,26 +77,26 @@ end
 M.cmp = function(cmp)
     local has_words_before = function()
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match('%s') == nil
+        return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match '%s' == nil
     end
-    local luasnip = require('luasnip')
+    local luasnip = require 'luasnip'
     return {
         -- show completion tips
         ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
         -- hide completion tips
-        ['<A-,>'] = cmp.mapping({
+        ['<A-,>'] = cmp.mapping {
             i = cmp.mapping.abort(),
             c = cmp.mapping.close(),
-        }),
+        },
         -- jump to the above tip
         ['<C-k>'] = cmp.mapping.select_prev_item(),
         -- jump to the below tip
         ['<C-j>'] = cmp.mapping.select_next_item(),
         -- confirm your selection
-        ['<CR>'] = cmp.mapping.confirm({
+        ['<CR>'] = cmp.mapping.confirm {
             select = true,
             behavior = cmp.ConfirmBehavior.Replace,
-        }),
+        },
         -- moving fast in the completion menu
         ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
         ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),

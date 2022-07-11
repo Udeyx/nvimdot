@@ -13,17 +13,28 @@ end
 
 lspinstaller.setup {}
 
+local config = {
+    on_attach = function(client, bufnr)
+        -- let null-ls do formatting job
+        client.resolved_capabilities.document_formatting = false
+        client.resolved_capabilities.document_range_formatting = false
+        -- keybindings
+        local function buf_set_keymap(...)
+            vim.api.nvim_buf_set_keymap(bufnr, ...)
+        end
+        require('core.keybindings').lsp(buf_set_keymap)
+    end,
+}
 local servers = {
-    sumneko_lua = {},
-    clangd = {},
-    texlab = {},
-    pyright = {},
-    bashls = {},
-    jsonls = {},
-    yamlls = {},
+    sumneko_lua = config,
+    clangd = config,
+    texlab = config,
+    pyright = config,
+    bashls = config,
+    jsonls = config,
+    yamlls = config,
 }
 
-for name, config in pairs(servers) do
-    table.insert(config,require('core.utils').on_attach)
-    lspconfig[name].setup(config)
+for name, cfg in pairs(servers) do
+    lspconfig[name].setup(cfg)
 end

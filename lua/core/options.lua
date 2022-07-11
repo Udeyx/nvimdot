@@ -82,7 +82,7 @@ opt.termguicolors = true
 opt.wildmenu = true
 
 -- disable nvim intro
-opt.shortmess:append('sI')
+opt.shortmess:append 'sI'
 
 -- show mode with plugins
 opt.showmode = false
@@ -126,6 +126,3 @@ end
 g.mapleader = ' '
 
 -- set colorscheme
-g.tokyonight_transparent = true
-g.tokyonight_transparent_sidebar = true
-vim.cmd([[colorscheme tokyonight]])

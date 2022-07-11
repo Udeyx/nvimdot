@@ -19,14 +19,4 @@ M.run = function(plugins)
     }
 end
 
-M.on_attach = function(client, bufnr)
-    -- let null-ls do formatting
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-    -- keybindings
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-    require('core.keybindings').lsp(buf_set_keymap)
-end
 return M
