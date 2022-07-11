@@ -26,15 +26,15 @@ local config = {
     end,
 }
 local servers = {
-    sumneko_lua = config,
-    clangd = config,
-    texlab = config,
-    pyright = config,
-    bashls = config,
-    jsonls = config,
-    yamlls = config,
+    'sumneko_lua',
+    'clangd',
+    'texlab',
+    'pyright',
+    'bashls',
+    'jsonls',
+    'yamlls',
 }
 
-for name, cfg in pairs(servers) do
-    lspconfig[name].setup(cfg)
+for _, name in pairs(servers) do
+    lspconfig[name].setup(config)
 end
