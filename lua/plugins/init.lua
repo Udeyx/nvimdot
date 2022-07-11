@@ -22,10 +22,9 @@ local plugins = {
 
     -- User Interface
     ['folke/tokyonight.nvim'] = {
-        config = function ()
+        config = function()
             require 'plugins.configs.tokyonight'
-            
-        end
+        end,
     },
     ['kyazdani42/nvim-web-devicons'] = { after = 'plenary.nvim' },
     ['arkav/lualine-lsp-progress'] = { after = 'nvim-web-devicons' },
@@ -108,7 +107,7 @@ local plugins = {
     ['hrsh7th/cmp-nvim-lsp'] = { after = 'cmp-nvim-lua' },
     ['hrsh7th/cmp-buffer'] = { after = 'cmp-nvim-lsp' },
     ['hrsh7th/cmp-path'] = { after = 'cmp-buffer' },
-    ['tzachar/cmp-tabnine'] = {run='./install.sh', after = 'cmp-path'},
+    ['tzachar/cmp-tabnine'] = { run = './install.sh', after = 'cmp-path' },
     ['windwp/nvim-autopairs'] = {
         after = 'nvim-cmp',
         config = function()
