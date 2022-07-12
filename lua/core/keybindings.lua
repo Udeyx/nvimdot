@@ -7,6 +7,10 @@ map('n', '<C-j>', '5j', opt)
 map('n', '<C-k>', '5k', opt)
 map('n', '<C-u>', '10k', opt)
 map('n', '<C-d>', '10j', opt)
+map('v', '<C-j>', '5j', opt)
+map('v', '<C-k>', '5k', opt)
+map('v', '<C-u>', '10k', opt)
+map('v', '<C-d>', '10j', opt)
 
 -- easy quit
 map('n', 'qq', ':q<CR>', opt)
@@ -62,7 +66,8 @@ M.lsp = function(mapbuf)
     -- code action
     mapbuf('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
     -- go xx
-    mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
+    mapbuf("n", "gd","<cmd>Lspsaga preview_definition<CR>", opt)
+    --mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
     mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
     mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
     mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)

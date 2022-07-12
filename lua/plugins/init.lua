@@ -96,19 +96,26 @@ local options = function(use)
     }
 
     -- Language Server Protocol
-    use { 'williamboman/nvim-lsp-installer', event = { 'BufRead', 'BufNewFile' } }
+    use {
+        'williamboman/nvim-lsp-installer',
+        --event = { 'BufRead', 'BufNewFile' }
+    }
     use {
         'neovim/nvim-lspconfig',
-        after = 'nvim-lsp-installer',
+        --after = 'nvim-lsp-installer',
         config = function()
             require 'plugins.configs.lspconfig'
         end,
     }
     use {
-        'jose-elias-alvarez/null-ls.nvim',
-        after = 'nvim-lspconfig',
+        'glepnir/lspsaga.nvim',
+        branch = 'main',
         config = function()
-            require 'plugins.configs.null'
+            local saga = require 'lspsaga'
+
+            saga.init_lsp_saga {
+                -- your configuration
+            }
         end,
     }
 
