@@ -1,4 +1,5 @@
 -- duplicate parametes
+local vim = vim
 local map = vim.api.nvim_set_keymap
 local opt = { noremap = true, silent = true }
 
@@ -26,14 +27,14 @@ M.tree = {
     { key = 'v', action = 'vsplit' },
     { key = 'h', action = 'split' },
     -- change status of hidden files
-    { key = '.', action = 'toggle_dotfiles' }, -- Hide (dotfiles)
+    { key = '<C-h>', action = 'toggle_dotfiles' }, -- Hide (dotfiles)
     -- file operation
     { key = '<F5>', action = 'refresh' },
     { key = 'a', action = 'create' },
-    { key = 'd', action = 'remove' },
+    { key = 'D', action = 'remove' },
     { key = 'r', action = 'rename' },
-    { key = 'x', action = 'cut' },
-    { key = 'c', action = 'copy' },
+    { key = 'd', action = 'cut' },
+    { key = 'y', action = 'copy' },
     { key = 'p', action = 'paste' },
     { key = 's', action = 'system_open' },
 }
@@ -62,21 +63,20 @@ M.telescope = {
 
 -- lsp
 M.lsp = function(mapbuf)
-    mapbuf('n', '<leader>rn', '<cmd>lua vim.lsp.buf.rename()<CR>', opt)
+    mapbuf('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', opt)
     -- code action
-    mapbuf('n', '<leader>ca', '<cmd>lua vim.lsp.buf.code_action()<CR>', opt)
+    mapbuf('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', opt)
     -- go xx
-    mapbuf("n", "gd","<cmd>Lspsaga preview_definition<CR>", opt)
-    --mapbuf('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', opt)
-    mapbuf('n', 'gh', '<cmd>lua vim.lsp.buf.hover()<CR>', opt)
-    mapbuf('n', 'gD', '<cmd>lua vim.lsp.buf.declaration()<CR>', opt)
-    mapbuf('n', 'gi', '<cmd>lua vim.lsp.buf.implementation()<CR>', opt)
-    mapbuf('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opt)
+    mapbuf("n", "gd", ":Lspsaga preview_definition<CR>", opt)
+    mapbuf('n', 'gh', ':lua vim.lsp.buf.hover()<CR>', opt)
+    mapbuf('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', opt)
+    mapbuf('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opt)
+    mapbuf('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opt)
     -- diagnostic
-    mapbuf('n', 'gp', '<cmd>lua vim.diagnostic.open_float()<CR>', opt)
-    mapbuf('n', 'gk', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opt)
-    mapbuf('n', 'gj', '<cmd>lua vim.diagnostic.goto_next()<CR>', opt)
-    mapbuf('n', '<leader>f', '<cmd>lua vim.lsp.buf.formatting()<CR>', opt)
+    mapbuf('n', 'gp', ':lua vim.diagnostic.open_float()<CR>', opt)
+    mapbuf('n', 'gk', ':lua vim.diagnostic.goto_prev()<CR>', opt)
+    mapbuf('n', 'gj', ':lua vim.diagnostic.goto_next()<CR>', opt)
+    mapbuf('n', '<leader>f', ':lua vim.lsp.buf.formatting()<CR>', opt)
 end
 
 M.cmp = function(cmp)
