@@ -1,119 +1,149 @@
-local plugins = {
+local present, packer = pcall(require, 'packer')
+
+if not present then
+    print "can't find packer"
+    return
+end
+
+local options = function(use)
     -- Basic
-    ['nvim-lua/plenary.nvim'] = {},
-    ['lewis6991/impatient.nvim'] = {},
-    ['wbthomason/packer.nvim'] = {},
-    ['dstein64/vim-startuptime'] = {},
+    use 'nvim-lua/plenary.nvim'
+    use 'lewis6991/impatient.nvim'
+    use 'wbthomason/packer.nvim'
+    use 'dstein64/vim-startuptime'
 
     -- File Operation
-    ['nvim-telescope/telescope.nvim'] = {
+    use {
+        'nvim-telescope/telescope.nvim',
         cmd = 'Telescope',
         config = function()
             require 'plugins.configs.telescope'
         end,
-    },
-    ['kyazdani42/nvim-tree.lua'] = {
+    }
+    use {
+        'kyazdani42/nvim-tree.lua',
         cmd = 'NvimTreeToggle',
         config = function()
             require 'plugins.configs.tree'
         end,
-    },
-    ['famiu/bufdelete.nvim'] = { cmd = 'Bdelete' },
+    }
+    use { 'famiu/bufdelete.nvim', cmd = 'Bdelete' }
 
     -- User Interface
-    ['folke/tokyonight.nvim'] = {
+    use {
+        'folke/tokyonight.nvim',
         config = function()
             require 'plugins.configs.tokyonight'
         end,
-    },
-    ['kyazdani42/nvim-web-devicons'] = { after = 'plenary.nvim' },
-    ['arkav/lualine-lsp-progress'] = { after = 'nvim-web-devicons' },
-    ['glepnir/dashboard-nvim'] = {
+    }
+    use {
+        'glepnir/dashboard-nvim',
         config = function()
             require 'plugins.configs.dashboard'
         end,
-    },
-    ['akinsho/bufferline.nvim'] = {
+    }
+    use { 'kyazdani42/nvim-web-devicons', after = 'plenary.nvim' }
+    use { 'arkav/lualine-lsp-progress', event = { 'BufRead', 'BufNewFile' } }
+    use {
+        'akinsho/bufferline.nvim',
         tag = 'v2.*',
-        after = 'nvim-web-devicons',
+        event = { 'BufRead', 'BufNewFile' },
+        --after = 'nvim-web-devicons',
         config = function()
             require 'plugins.configs.bufferline'
         end,
-    },
-    ['nvim-lualine/lualine.nvim'] = {
+    }
+    use {
+        'nvim-lualine/lualine.nvim',
         after = 'lualine-lsp-progress',
         config = function()
             require 'plugins.configs.lualine'
         end,
-    },
+    }
 
     -- Syntax
-    ['nvim-treesitter/nvim-treesitter'] = {
+    use {
+        'nvim-treesitter/nvim-treesitter',
         event = { 'BufRead', 'BufNewFile' },
         run = ':TSUpdate',
         config = function()
             require 'plugins.configs.treesitter'
         end,
-    },
-    ['p00f/nvim-ts-rainbow'] = { after = 'nvim-treesitter' },
+    }
+    use { 'p00f/nvim-ts-rainbow', after = 'nvim-treesitter' }
 
     -- Widget
-    ['numToStr/Comment.nvim'] = {
+    use {
+        'numToStr/Comment.nvim',
         keys = { 'gc', 'gb' },
         config = function()
             require 'plugins.configs.comment'
         end,
-    },
-    ['akinsho/toggleterm.nvim'] = {
+    }
+    use {
+        'akinsho/toggleterm.nvim',
         cmd = 'ToggleTerm',
         config = function()
             require 'plugins.configs.toggleterm'
         end,
-    },
-    ['CRAG666/code_runner.nvim'] = {
+    }
+    use {
+        'CRAG666/code_runner.nvim',
         cmd = 'RunCode',
         config = function()
             require 'plugins.configs.runner'
         end,
-    },
+    }
 
     -- Language Server Protocol
-    ['williamboman/nvim-lsp-installer'] = {},
-    ['neovim/nvim-lspconfig'] = {
+    use { 'williamboman/nvim-lsp-installer', event = { 'BufRead', 'BufNewFile' } }
+    use {
+        'neovim/nvim-lspconfig',
+        after = 'nvim-lsp-installer',
         config = function()
             require 'plugins.configs.lspconfig'
         end,
-    },
-    ['jose-elias-alvarez/null-ls.nvim'] = {
+    }
+    use {
+        'jose-elias-alvarez/null-ls.nvim',
+        after = 'nvim-lspconfig',
         config = function()
             require 'plugins.configs.null'
         end,
-    },
+    }
 
     -- Completion
-    ['rafamadriz/friendly-snippets'] = {
-        module = 'cmp_nvim_lsp',
-        event = 'InsertEnter',
-    },
-    ['hrsh7th/nvim-cmp'] = {
+    use { 'rafamadriz/friendly-snippets', event = 'InsertEnter' }
+    use {
+        'hrsh7th/nvim-cmp',
         after = 'friendly-snippets',
         config = function()
             require 'plugins.configs.cmp'
         end,
-    },
-    ['L3MON4D3/LuaSnip'] = { after = 'nvim-cmp' },
-    ['saadparwaiz1/cmp_luasnip'] = { after = 'LuaSnip' },
-    ['hrsh7th/cmp-nvim-lua'] = { after = 'cmp_luasnip' },
-    ['hrsh7th/cmp-nvim-lsp'] = { after = 'cmp-nvim-lua' },
-    ['hrsh7th/cmp-buffer'] = { after = 'cmp-nvim-lsp' },
-    ['hrsh7th/cmp-path'] = { after = 'cmp-buffer' },
-    ['tzachar/cmp-tabnine'] = { run = './install.sh', after = 'cmp-path' },
-    ['windwp/nvim-autopairs'] = {
-        after = 'nvim-cmp',
+    }
+    use { 'L3MON4D3/LuaSnip', after = 'nvim-cmp' }
+    use { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' }
+    use { 'hrsh7th/cmp-nvim-lua', after = 'cmp_luasnip' }
+    use { 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua' }
+    use { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-path', after = 'cmp-buffer' }
+    use {
+        'windwp/nvim-autopairs',
+        after = 'cmp-path',
         config = function()
             require 'plugins.configs.autopairs'
         end,
-    },
-}
+    }
+    use {
+        'kylechui/nvim-surround',
+        after = 'nvim-autopairs',
+        config = function()
+            require('nvim-surround').setup {
+                -- Configuration here, or leave empty to use defaults
+            }
+        end,
+    }
+    use { 'tzachar/cmp-tabnine', run = './install.sh', after = 'nvim-surround' }
+end
 
-require('core.utils').run(plugins)
+packer.startup(options)
