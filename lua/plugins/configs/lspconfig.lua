@@ -12,18 +12,14 @@ if not present2 then
 end
 
 lspinstaller.setup {}
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities.offsetEncoding = { "utf-16" }
+
 local config = {
-    --capabilities = capabilities,
-    on_attach = function(client, bufnr)
-        -- let null-ls do formatting job
-        -- client.resolved_capabilities.document_formatting = false
-        -- client.resolved_capabilities.document_range_formatting = false
+    on_attach = function(bufnr)
         -- keybindings
         local function buf_set_keymap(...)
             vim.api.nvim_buf_set_keymap(bufnr, ...)
         end
+
         require('core.keybindings').lsp(buf_set_keymap)
     end,
 }
@@ -35,6 +31,7 @@ local servers = {
     'bashls',
     'jsonls',
     'yamlls',
+    'marksman',
 }
 
 for _, name in pairs(servers) do
