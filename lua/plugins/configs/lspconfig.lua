@@ -14,7 +14,7 @@ end
 lspinstaller.setup {}
 
 local config = {
-    on_attach = function(bufnr)
+    on_attach = function(client, bufnr)
         -- keybindings
         local function buf_set_keymap(...)
             vim.api.nvim_buf_set_keymap(bufnr, ...)
