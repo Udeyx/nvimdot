@@ -20,6 +20,7 @@ cmp.setup {
         { name = 'path' },
         { name = 'cmp_tabnine' },
     },
+    formatting = require('plugins.configs.lspkind').formatting,
 }
 
 -- Use buffer source for '/'

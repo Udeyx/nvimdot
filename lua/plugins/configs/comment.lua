@@ -5,4 +5,5 @@ if not present then
     return
 end
 local options = {}
+
 comment.setup(options)

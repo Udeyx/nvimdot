@@ -96,13 +96,9 @@ local options = function(use)
     }
 
     -- Language Server Protocol
-    use {
-        'williamboman/nvim-lsp-installer',
-        --event = { 'BufRead', 'BufNewFile' }
-    }
+    use { 'williamboman/nvim-lsp-installer' }
     use {
         'neovim/nvim-lspconfig',
-        --after = 'nvim-lsp-installer',
         config = function()
             require 'plugins.configs.lspconfig'
         end,
@@ -111,14 +107,22 @@ local options = function(use)
         'glepnir/lspsaga.nvim',
         branch = 'main',
         config = function()
-            local saga = require 'lspsaga'
-
-            saga.init_lsp_saga {
-                -- your configuration
-            }
+            require 'plugins.configs.lspsaga'
         end,
     }
-
+    use {
+        'onsails/lspkind.nvim',
+        config = function()
+            require 'plugins.configs.lspkind'
+        end,
+    }
+    use {
+        'jose-elias-alvarez/null-ls.nvim',
+        after = 'nvim-lspconfig',
+        config = function()
+            require 'plugins.configs.null'
+        end,
+    }
     -- Completion
     use { 'rafamadriz/friendly-snippets', event = 'InsertEnter' }
     use {

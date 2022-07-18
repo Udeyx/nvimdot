@@ -63,21 +63,31 @@ M.telescope = {
 
 -- lsp
 M.lsp = function(mapbuf)
-    mapbuf('n', '<leader>rn', ':lua vim.lsp.buf.rename()<CR>', opt)
-    -- code action
-    mapbuf('n', '<leader>ca', ':lua vim.lsp.buf.code_action()<CR>', opt)
-    -- go xx
-    mapbuf("n", "gd", ":Lspsaga preview_definition<CR>", opt)
-    mapbuf('n', 'gh', ':lua vim.lsp.buf.hover()<CR>', opt)
-    mapbuf('n', 'gD', ':lua vim.lsp.buf.declaration()<CR>', opt)
-    mapbuf('n', 'gi', ':lua vim.lsp.buf.implementation()<CR>', opt)
-    mapbuf('n', 'gr', ':lua vim.lsp.buf.references()<CR>', opt)
-    -- diagnostic
-    mapbuf('n', 'gp', ':lua vim.diagnostic.open_float()<CR>', opt)
-    mapbuf('n', 'gk', ':lua vim.diagnostic.goto_prev()<CR>', opt)
-    mapbuf('n', 'gj', ':lua vim.diagnostic.goto_next()<CR>', opt)
+    -- Formatting
     mapbuf('n', '<leader>f', ':lua vim.lsp.buf.formatting()<CR>', opt)
 end
+-- Async lsp finder
+map('n', 'gh', ':Lspsaga lsp_finder<CR>', opt)
+-- Code action
+map('n', '<leader>ca', ':Lspsaga code_action<CR>', opt)
+map('v', '<leader>ca', ':<C-U>Lspsaga range_code_action<CR>', opt)
+-- Hover doc
+map('n', 'K', ':Lspsaga hover_doc<CR>', opt)
+-- Signature help
+map('n', 'gs', ':Lspsaga signature_help<CR>', opt)
+-- Rename
+map('n', 'gr', ':Lspsaga rename<CR>', opt)
+-- Preview definition
+map('n', 'gd', ':Lspsaga preview_definition<CR>', opt)
+-- Diagnostic
+map('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', opt)
+map('n', '[e', ':Lspsaga diagnostic_jump_next<CR>', opt)
+map('n', ']e', ':Lspsaga diagnostic_jump_prev<CR>', opt)
+-- Outline
+map('n', '<leader>l', ':LSoutlineToggle<CR>', opt)
+-- Float terminal
+map('n', '<leader>t', ':Lspsaga open_floaterm zsh<CR>', opt)
+map('t', '<leader>t', '<C-\\><C-n>:lua require("lspsaga.floaterm").close_float_terminal()<CR>', opt)
 
 M.cmp = function(cmp)
     local has_words_before = function()
@@ -131,15 +141,12 @@ M.cmp = function(cmp)
     }
 end
 
--- Toggleterm
-map('n', '<leader>t', ':ToggleTerm<CR>', opt)
-
 -- Code Runner
 map('n', '<leader>r', ':w<CR>:RunCode<CR>', opt)
 
 -- Comment
 --map('n','<leader>/',function()require("Comment.api").toggle_current_linewise()end,opt)
-map('v', '<leader>/', "<ESC><cmd>lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opt)
+map('v', '<leader>/', "<ESC>:lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opt)
 
 -- Packer
 map('n', '<leader>p', ':PackerSync<CR>', opt)
