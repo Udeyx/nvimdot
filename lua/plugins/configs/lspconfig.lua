@@ -12,7 +12,7 @@ if not present2 then
     return
 end
 
-lspinstaller.setup {}
+lspinstaller.setup { automatic_installation = true }
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.offsetEncoding = { 'utf-16' }
 local config = {

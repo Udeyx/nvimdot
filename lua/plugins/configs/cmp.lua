@@ -18,6 +18,7 @@ cmp.setup {
         { name = 'luasnip' },
         { name = 'buffer' },
         { name = 'path' },
+        { name = 'nvim_lua' },
         { name = 'cmp_tabnine' },
     },
     formatting = require('plugins.configs.lspkind').formatting,
