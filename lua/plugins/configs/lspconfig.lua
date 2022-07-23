@@ -32,7 +32,7 @@ local servers = {
     'sumneko_lua',
     'clangd',
     'texlab',
-    'pyright',
+    'jedi_language_server',
     'bashls',
     'jsonls',
     'yamlls',

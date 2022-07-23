@@ -86,8 +86,8 @@ map('n', ']e', ':Lspsaga diagnostic_jump_prev<CR>', opt)
 -- Outline
 map('n', '<leader>l', ':LSoutlineToggle<CR>', opt)
 -- Float terminal
-map('n', '<leader>t', ':Lspsaga open_floaterm zsh<CR>', opt)
-map('t', '<leader>t', '<C-\\><C-n>:lua require("lspsaga.floaterm").close_float_terminal()<CR>', opt)
+map('n', '<leader>t', ':ToggleTerm<CR>i', opt)
+map('t', '<leader>t', '<C-\\><C-n>:ToggleTerm<CR>', opt)
 
 M.cmp = function(cmp)
     local has_words_before = function()
