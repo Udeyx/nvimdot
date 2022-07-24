@@ -40,5 +40,7 @@ local servers = {
 }
 
 for _, name in pairs(servers) do
-    lspconfig[name].setup(config)
+    if name ~= 'clangd' then
+        lspconfig[name].setup(config)
+    end
 end

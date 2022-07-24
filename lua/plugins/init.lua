@@ -48,7 +48,6 @@ local options = function(use)
         'akinsho/bufferline.nvim',
         tag = 'v2.*',
         event = { 'BufRead', 'BufNewFile' },
-        --after = 'nvim-web-devicons',
         config = function()
             require 'plugins.configs.bufferline'
         end,
@@ -121,6 +120,13 @@ local options = function(use)
         after = 'nvim-lspconfig',
         config = function()
             require 'plugins.configs.null'
+        end,
+    }
+    use {
+        'p00f/clangd_extensions.nvim',
+        ft = { 'c', 'cpp' },
+        config = function()
+            require 'plugins.configs.clangd'
         end,
     }
     -- Completion
