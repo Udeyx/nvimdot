@@ -8,7 +8,7 @@ end
 local platform = vim.loop.os_uname().sysname
 local install_method = './install.sh'
 if platform == 'Windows' then
-    install_method = 'pwsh.exe install.ps1'
+    install_method = 'pwsh.exe ./install.ps1'
 end
 
 local options = function(use)
