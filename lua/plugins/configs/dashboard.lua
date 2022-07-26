@@ -26,6 +26,11 @@ local ascii = {
 dashboard.custom_header = ascii
 dashboard.custom_center = {
     {
+        icon = '  ',
+        desc = 'New File           ',
+        action = 'ene',
+    },
+    {
         icon = '  ',
         desc = 'Find File          ',
         action = 'Telescope',
