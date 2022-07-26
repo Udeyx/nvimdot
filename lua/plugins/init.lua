@@ -141,7 +141,7 @@ local options = function(use)
     }
     use { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' }
     use { 'hrsh7th/cmp-nvim-lsp', after = 'cmp_luasnip' }
-    use { 'tzachar/cmp-tabnine', run = 'pwsh ./install.ps1', after = 'cmp-nvim-lsp' }
+    use { 'tzachar/cmp-tabnine', run = './install.sh', after = 'cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-nvim-lua', after = 'cmp-tabnine' }
     use { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lua' }
     use { 'hrsh7th/cmp-path', after = 'cmp-buffer' }
