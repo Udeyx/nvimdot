@@ -96,25 +96,8 @@ M.cmp = function(cmp)
     end
     local luasnip = require 'luasnip'
     return {
-        -- show completion tips
-        ['<A-.>'] = cmp.mapping(cmp.mapping.complete(), { 'i', 'c' }),
-        -- hide completion tips
-        ['<A-,>'] = cmp.mapping {
-            i = cmp.mapping.abort(),
-            c = cmp.mapping.close(),
-        },
-        -- jump to the above tip
-        ['<C-k>'] = cmp.mapping.select_prev_item(),
-        -- jump to the below tip
-        ['<C-j>'] = cmp.mapping.select_next_item(),
-        -- confirm your selection
-        ['<CR>'] = cmp.mapping.confirm {
-            select = true,
-            behavior = cmp.ConfirmBehavior.Replace,
-        },
-        -- moving fast in the completion menu
-        ['<C-u>'] = cmp.mapping(cmp.mapping.scroll_docs(-4), { 'i', 'c' }),
-        ['<C-d>'] = cmp.mapping(cmp.mapping.scroll_docs(4), { 'i', 'c' }),
+        -- Confire the completion choice
+        ['<CR>'] = cmp.mapping.confirm { select = false },
         -- Super Tab
         ['<Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
@@ -127,7 +110,6 @@ M.cmp = function(cmp)
                 fallback()
             end
         end, { 'i', 's' }),
-
         ['<S-Tab>'] = cmp.mapping(function(fallback)
             if cmp.visible() then
                 cmp.select_prev_item()
@@ -137,16 +119,11 @@ M.cmp = function(cmp)
                 fallback()
             end
         end, { 'i', 's' }),
-        -- end of super Tab
     }
 end
 
 -- Code Runner
 map('n', '<leader>r', ':w<CR>:RunCode<CR>', opt)
-
--- Comment
---map('n','<leader>/',function()require("Comment.api").toggle_current_linewise()end,opt)
-map('v', '<leader>/', "<ESC>:lua require('Comment.api').toggle_linewise_op(vim.fn.visualmode())<CR>", opt)
 
 -- Packer
 map('n', '<leader>p', ':PackerSync<CR>', opt)

@@ -76,7 +76,7 @@ local options = function(use)
         'numToStr/Comment.nvim',
         keys = { 'gc', 'gb' },
         config = function()
-            require 'plugins.configs.comment'
+            require('Comment').setup()
         end,
     }
     use {
@@ -139,10 +139,11 @@ local options = function(use)
             require 'plugins.configs.cmp'
         end,
     }
-    use { 'saadparwaiz1/cmp_luasnip', after = 'nvim-cmp' }
-    use { 'hrsh7th/cmp-nvim-lua', after = 'cmp_luasnip' }
-    use { 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua' }
-    use { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lsp' }
+    use { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' }
+    use { 'hrsh7th/cmp-nvim-lsp', after = 'cmp_luasnip' }
+    use { 'tzachar/cmp-tabnine', run = 'pwsh ./install.ps1', after = 'cmp-nvim-lsp' }
+    use { 'hrsh7th/cmp-nvim-lua', after = 'cmp-tabnine' }
+    use { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lua' }
     use { 'hrsh7th/cmp-path', after = 'cmp-buffer' }
     use {
         'windwp/nvim-autopairs',
@@ -151,16 +152,6 @@ local options = function(use)
             require 'plugins.configs.autopairs'
         end,
     }
-    use {
-        'kylechui/nvim-surround',
-        after = 'nvim-autopairs',
-        config = function()
-            require('nvim-surround').setup {
-                -- Configuration here, or leave empty to use defaults
-            }
-        end,
-    }
-    use { 'tzachar/cmp-tabnine', run = './install.sh', after = 'nvim-surround' }
 end
 
 packer.startup(options)
