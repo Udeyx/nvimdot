@@ -5,6 +5,12 @@ if not present then
     return
 end
 
+local platform = vim.loop.os_uname().sysname
+local install_method = './install.sh'
+if platform == 'Windows' then
+    install_method = 'pwsh.exe install.ps1'
+end
+
 local options = function(use)
     -- Basic
     use 'nvim-lua/plenary.nvim'
@@ -141,7 +147,7 @@ local options = function(use)
     }
     use { 'saadparwaiz1/cmp_luasnip', after = 'LuaSnip' }
     use { 'hrsh7th/cmp-nvim-lsp', after = 'cmp_luasnip' }
-    use { 'tzachar/cmp-tabnine', run = './install.sh', after = 'cmp-nvim-lsp' }
+    use { 'tzachar/cmp-tabnine', run = install_method, after = 'cmp-nvim-lsp' }
     use { 'hrsh7th/cmp-nvim-lua', after = 'cmp-tabnine' }
     use { 'hrsh7th/cmp-buffer', after = 'cmp-nvim-lua' }
     use { 'hrsh7th/cmp-path', after = 'cmp-buffer' }
