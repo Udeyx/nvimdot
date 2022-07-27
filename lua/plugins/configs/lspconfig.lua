@@ -13,20 +13,7 @@ end
 
 lspinstaller.setup {}
 
-local M = {}
-
-M.on_attach = function(client, bufnr)
-    -- Only use null-ls to format files
-    client.resolved_capabilities.document_formatting = false
-    client.resolved_capabilities.document_range_formatting = false
-    -- keybindings
-    local function buf_set_keymap(...)
-        vim.api.nvim_buf_set_keymap(bufnr, ...)
-    end
-    require('core.keybindings').lsp(buf_set_keymap)
-end
-
-local default_config = { on_attach = M.on_attach }
+local default_config = { on_attach = require('core.utils').on_attach }
 
 local servers = {
     bashls = default_config, -- Bash
@@ -41,9 +28,5 @@ local servers = {
 }
 
 for name, config in pairs(servers) do
-    if name ~= 'clangd' then
-        lspconfig[name].setup(config)
-    end
+    lspconfig[name].setup(config)
 end
-
-return M
