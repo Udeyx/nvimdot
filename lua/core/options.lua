@@ -1,11 +1,15 @@
 local opt = vim.opt
-
+local g = vim.g
 -- file options
 opt.backup = false
 opt.swapfile = false
 opt.writebackup = false
 opt.autoread = true
 opt.hidden = true
+
+-- use filetype.lua instead of filetype.vim to accelerate nvim startup time
+g.did_load_filetypes = 0
+g.do_filetype_lua = 1
 
 -- encoding
 opt.encoding = 'UTF-8'
@@ -43,7 +47,6 @@ opt.incsearch = true
 -- hight of cmd
 opt.cmdheight = 2
 
-
 -- go to previous/next line with h,l,left arrow and right arrow
 -- when cursor reaches end/beginning of line
 opt.whichwrap = '<>[]hl'
@@ -74,3 +77,37 @@ opt.clipboard = 'unnamedplus'
 opt.completeopt = { 'menuone', 'noselect' }
 opt.pumheight = 10
 opt.wildmenu = true
+
+-- disable some builtin vim plugins
+local default_plugins = {
+    '2html_plugin',
+    'getscript',
+    'getscriptPlugin',
+    'gzip',
+    'logipat',
+    'netrw',
+    'netrwPlugin',
+    'netrwSettings',
+    'netrwFileHandlers',
+    'matchit',
+    'tar',
+    'tarPlugin',
+    'rrhelper',
+    'spellfile_plugin',
+    'vimball',
+    'vimballPlugin',
+    'zip',
+    'zipPlugin',
+    'tutor',
+    'rplugin',
+    'syntax',
+    'synmenu',
+    'optwin',
+    'compiler',
+    'bugreport',
+    'ftplugin',
+}
+
+for _, plugin in pairs(default_plugins) do
+    g['loaded_' .. plugin] = 1
+end
