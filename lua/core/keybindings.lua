@@ -1,26 +1,25 @@
 -- duplicate parametes
-local vim = vim
 local map = vim.api.nvim_set_keymap
-local opt = { noremap = true, silent = true }
+local opts = { noremap = true, silent = true }
+
+-- set leader key
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
 
 -- move fast
-map('n', '<C-j>', '5j', opt)
-map('n', '<C-k>', '5k', opt)
-map('n', '<C-u>', '10k', opt)
-map('n', '<C-d>', '10j', opt)
-map('v', '<C-j>', '5j', opt)
-map('v', '<C-k>', '5k', opt)
-map('v', '<C-u>', '10k', opt)
-map('v', '<C-d>', '10j', opt)
+map('n', '<C-j>', '5j', opts)
+map('n', '<C-k>', '5k', opts)
+map('v', '<C-j>', '5j', opts)
+map('v', '<C-k>', '5k', opts)
 
 -- easy quit
-map('n', 'qq', ':q<CR>', opt)
+map('n', 'qq', ':q<CR>', opts)
 
 -- plugins' keybindings
 local M = {}
 
 -- nvim-tree
-map('n', '<A-m>', ':NvimTreeToggle<CR>', opt)
+map('n', '<A-m>', ':NvimTreeToggle<CR>', opts)
 M.tree = {
     { key = { '<CR>', 'o', '<2-LeftMouse>' }, action = 'edit' },
     -- open file with split window
@@ -40,13 +39,13 @@ M.tree = {
 }
 
 -- bufferline
-map('n', '<C-h>', ':BufferLineCyclePrev<CR>', opt)
-map('n', '<C-l>', ':BufferLineCycleNext<CR>', opt)
-map('n', '<C-w>', ':Bdelete!<CR>', opt)
+map('n', '<C-h>', ':BufferLineCyclePrev<CR>', opts)
+map('n', '<C-l>', ':BufferLineCycleNext<CR>', opts)
+map('n', '<C-w>', ':Bdelete!<CR>', opts)
 
 -- telescope
-map('n', '<C-p>', ':Telescope find_files<CR>', opt)
-map('n', '<C-f>', ':Telescope live_grep<CR>', opt)
+map('n', '<C-p>', ':Telescope find_files<CR>', opts)
+map('n', '<C-f>', ':Telescope live_grep<CR>', opts)
 M.telescope = {
     i = {
         ['<C-j>'] = 'move_selection_next',
@@ -64,30 +63,30 @@ M.telescope = {
 -- lsp
 M.lsp = function(mapbuf)
     -- Formatting
-    mapbuf('n', '<leader>f', ':lua vim.lsp.buf.formatting()<CR>', opt)
+    mapbuf('n', '<leader>f', ':lua vim.lsp.buf.formatting()<CR>', opts)
 end
 -- Async lsp finder
-map('n', 'gh', ':Lspsaga lsp_finder<CR>', opt)
+map('n', 'gh', ':Lspsaga lsp_finder<CR>', opts)
 -- Code action
-map('n', '<leader>ca', ':Lspsaga code_action<CR>', opt)
-map('v', '<leader>ca', ':<C-U>Lspsaga range_code_action<CR>', opt)
+map('n', '<leader>ca', ':Lspsaga code_action<CR>', opts)
+map('v', '<leader>ca', ':<C-U>Lspsaga range_code_action<CR>', opts)
 -- Hover doc
-map('n', 'K', ':Lspsaga hover_doc<CR>', opt)
+map('n', 'K', ':Lspsaga hover_doc<CR>', opts)
 -- Signature help
-map('n', 'gs', ':Lspsaga signature_help<CR>', opt)
+map('n', 'gs', ':Lspsaga signature_help<CR>', opts)
 -- Rename
-map('n', 'gr', ':Lspsaga rename<CR>', opt)
+map('n', 'gr', ':Lspsaga rename<CR>', opts)
 -- Preview definition
-map('n', 'gd', ':Lspsaga preview_definition<CR>', opt)
+map('n', 'gd', ':Lspsaga preview_definition<CR>', opts)
 -- Diagnostic
-map('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', opt)
-map('n', '[e', ':Lspsaga diagnostic_jump_next<CR>', opt)
-map('n', ']e', ':Lspsaga diagnostic_jump_prev<CR>', opt)
+map('n', '<leader>cd', ':Lspsaga show_line_diagnostics<CR>', opts)
+map('n', '[e', ':Lspsaga diagnostic_jump_next<CR>', opts)
+map('n', ']e', ':Lspsaga diagnostic_jump_prev<CR>', opts)
 -- Outline
-map('n', '<leader>l', ':LSoutlineToggle<CR>', opt)
+map('n', '<leader>l', ':LSoutlineToggle<CR>', opts)
 -- Float terminal
-map('n', '<leader>t', ':ToggleTerm<CR>i', opt)
-map('t', '<leader>t', '<C-\\><C-n>:ToggleTerm<CR>', opt)
+map('n', '<leader>t', ':ToggleTerm<CR>i', opts)
+map('t', '<leader>t', '<C-\\><C-n>:ToggleTerm<CR>', opts)
 
 M.cmp = function(cmp)
     local has_words_before = function()
@@ -123,9 +122,9 @@ M.cmp = function(cmp)
 end
 
 -- Code Runner
-map('n', '<leader>r', ':w<CR>:RunCode<CR>', opt)
+map('n', '<leader>r', ':w<CR>:RunCode<CR>', opts)
 
 -- Packer
-map('n', '<leader>p', ':PackerSync<CR>', opt)
+map('n', '<leader>p', ':PackerSync<CR>', opts)
 
 return M

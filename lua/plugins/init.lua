@@ -132,7 +132,7 @@ local options = function(use)
         'p00f/clangd_extensions.nvim',
         ft = { 'c', 'cpp' },
         config = function()
-            require 'plugins.configs.clangd'
+            require 'plugins.configs.servers.clangd'
         end,
     }
     -- Completion

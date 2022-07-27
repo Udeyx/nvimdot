@@ -1,10 +1,3 @@
-local vim = vim
-local present = pcall(require, 'impatient')
-
-if not present then
-    return
-end
-
 _G.__luacache_config = {
     chunks = {
         enable = true,
@@ -15,6 +8,12 @@ _G.__luacache_config = {
         path = vim.fn.stdpath 'cache' .. '/luacache_modpaths',
     },
 }
+
+local present, _ = pcall(require, 'impatient')
+
+if not present then
+    return
+end
 
 require 'core'
 require 'plugins'
