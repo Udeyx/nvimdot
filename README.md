@@ -43,4 +43,4 @@ git clone --depth 1 https://github.com/Udeyx/nvimdot.git ~/.config/nvim
 # Windows
 git clone --depth 1 https://githu.com/Udeyx/nvimdot.git ~/Appdata/Local/nvim
 ```
-After git clone this repo, you should type :Packersync command in nvim to install plugins.
+After clone this repo, you should type :Packersync command in nvim to install plugins.
