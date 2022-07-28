@@ -101,7 +101,8 @@ local options = function(use)
     }
 
     -- Language Server Protocol
-    use { 'williamboman/nvim-lsp-installer' }
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
     use {
         'neovim/nvim-lspconfig',
         config = function()

@@ -1,7 +1,7 @@
 local present, null = pcall(require, 'null-ls')
 
 if not present then
-    print("can't find null-ls")
+    print "can't find null-ls"
     return
 end
 
@@ -10,8 +10,8 @@ local options = {
         null.builtins.formatting.stylua,
         null.builtins.formatting.prettier,
         null.builtins.formatting.clang_format,
-        null.builtins.formatting.autopep8,
-    }
+        null.builtins.formatting.black,
+    },
 }
 
 null.setup(options)
