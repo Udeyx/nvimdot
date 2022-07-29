@@ -127,4 +127,7 @@ map('n', '<leader>r', ':w<CR>:RunCode<CR>', opts)
 -- Packer
 map('n', '<leader>p', ':PackerSync<CR>', opts)
 
+-- Copilot
+map('i', '<C-a>', ":copilot#Accept('\\<CR>')<CR>", opts)
+
 return M

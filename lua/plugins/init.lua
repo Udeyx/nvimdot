@@ -160,8 +160,14 @@ local options = function(use)
         end,
     }
 
-    -- AI
-    use { 'github/copilot.vim', ft = { 'ts' }, after = 'cmp-nvim-lsp' }
+    -- Copilot
+    use {
+        'github/copilot.vim',
+        after = 'cmp-nvim-lsp',
+        config = function()
+            require 'plugins.configs.copilot'
+        end,
+    }
 end
 
 packer.startup(options)
