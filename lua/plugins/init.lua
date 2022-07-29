@@ -159,6 +159,9 @@ local options = function(use)
             require 'plugins.configs.autopairs'
         end,
     }
+
+    -- AI
+    use { 'github/copilot.vim', ft = { 'ts' }, after = 'cmp-nvim-lsp' }
 end
 
 packer.startup(options)
