@@ -1,7 +1,7 @@
 local present, lspkind = pcall(require, 'lspkind')
 
 if not present then
-    print "can't find lspkind"
+    print 'lspkind not found, please install it'
     return
 end
 
@@ -68,7 +68,7 @@ M.formatting = {
         before = function(entry, vim_item)
             vim_item.menu = '[' .. string.upper(entry.source.name) .. ']'
             return vim_item
-        end
-    }
+        end,
+    },
 }
 return M

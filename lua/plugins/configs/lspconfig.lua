@@ -3,7 +3,7 @@ local present2, mason = pcall(require, 'mason')
 local present3, mason_lspconfig = pcall(require, 'mason-lspconfig')
 
 if not (present1 and present2 and present3) then
-    print "can't find lspconfig or mason"
+    print 'lspconfig or mason not found, please install them'
     return
 end
 

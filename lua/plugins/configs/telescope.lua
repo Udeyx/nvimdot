@@ -1,7 +1,7 @@
 local present, telescope = pcall(require, 'telescope')
 
 if not present then
-    print "can't find telescope"
+    print 'telescope not found, please install it'
     return
 end
 

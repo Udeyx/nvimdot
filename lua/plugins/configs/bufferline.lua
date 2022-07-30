@@ -1,7 +1,7 @@
 local present, bufferline = pcall(require, 'bufferline')
 
 if not present then
-    print "can't find bufferline"
+    print 'bufferline not found, please install it'
     return
 end
 

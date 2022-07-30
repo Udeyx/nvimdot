@@ -1,6 +1,6 @@
 local present, cmp = pcall(require, 'cmp')
 if not present then
-    print "can't find cmp"
+    print 'cmp not found, please install it'
     return
 end
 

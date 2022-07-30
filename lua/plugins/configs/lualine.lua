@@ -1,7 +1,7 @@
 local present, lualine = pcall(require, 'lualine')
 
 if not present then
-    print "can't find lualine"
+    print 'lualine not found, please install it'
     return
 end
 

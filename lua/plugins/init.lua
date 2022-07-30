@@ -1,7 +1,7 @@
 local present, packer = pcall(require, 'packer')
 
 if not present then
-    print "can't find packer"
+    print 'packer not found, please install it'
     return
 end
 

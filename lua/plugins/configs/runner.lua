@@ -1,7 +1,7 @@
 local present, runner = pcall(require, 'code_runner')
 
 if not present then
-    print "can't find runner"
+    print 'code_runner not found, please install it'
     return
 end
 

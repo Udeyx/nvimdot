@@ -1,7 +1,7 @@
 local present, null = pcall(require, 'null-ls')
 
 if not present then
-    print "can't find null-ls"
+    print 'null-ls not found, please install it'
     return
 end
 

@@ -2,7 +2,7 @@ local vim = vim
 local present, clangd_extensions = pcall(require, 'clangd_extensions')
 
 if not present then
-    print "can't find clangd_extensions"
+    print 'clangd_extensions not found, please install it'
     return
 end
 

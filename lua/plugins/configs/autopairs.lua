@@ -1,7 +1,7 @@
 local present, autopairs = pcall(require, 'nvim-autopairs')
 
 if not present then
-    print "can't find autopairs"
+    print 'nvim-autopairs not found, please install it'
     return
 end
 
