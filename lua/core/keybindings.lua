@@ -128,6 +128,6 @@ map('n', '<leader>r', ':w<CR>:RunCode<CR>', opts)
 map('n', '<leader>p', ':PackerSync<CR>', opts)
 
 -- Copilot
-vim.cmd[[imap <silent><script><expr> <C-a> copilot#Accept("\<CR>")]]
+vim.cmd[[imap <silent><script><expr> <Right> copilot#Accept("\<CR>")]]
 
 return M
