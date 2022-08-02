@@ -7,10 +7,10 @@ autocmd('BufEnter', {
     command = 'set fo-=c fo-=r fo-=o fo-=O',
 })
 -- Let cursor's shape return to beam after quit nvim
-autocmd('VimLeave', {
-    pattern = '*',
-    command = 'set guicursor=a:ver90',
-})
+-- autocmd('VimLeave', {
+--     pattern = '*',
+--     command = 'set guicursor=a:ver90',
+-- })
 
 -- Lsp utils
 local M = {}
