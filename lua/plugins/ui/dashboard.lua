@@ -18,6 +18,7 @@ local options = {
         shortcut = shortcut,
         packages = { enable = false },
         mru = { limit = 5 },
+        footer = {},
     },
 }
 

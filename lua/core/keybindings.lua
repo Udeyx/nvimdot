@@ -10,21 +10,6 @@ local M = {}
 
 -- nvim-tree
 keymap('n', '<leader>e', '<cmd>NvimTreeToggle<CR>')
-M.tree = function(api, opts)
-    keymap('n', '<CR>', api.node.open.edit, opts 'Open')
-    keymap('n', 'o', api.node.open.edit, opts 'Open')
-    keymap('n', '<2-LeftMouse>', api.node.open.edit, opts 'Open')
-    keymap('n', 'v', api.node.open.vertical, opts 'Open: Vertical Split')
-    keymap('n', 'h', api.node.open.horizontal, opts 'Open: Horizontal Split')
-    keymap('n', '<C-h>', api.tree.toggle_hidden_filter, opts 'Toggle Dotfiles')
-    keymap('n', '<F5>', api.tree.reload, opts 'Refresh')
-    keymap('n', 'a', api.fs.create, opts 'Create')
-    keymap('n', 'x', api.fs.remove, opts 'Delete')
-    keymap('n', 'r', api.fs.rename, opts 'Rename')
-    keymap('n', 'd', api.fs.cut, opts 'Cut')
-    keymap('n', 'y', api.fs.copy.node, opts 'Copy')
-    keymap('n', 'p', api.fs.paste, opts 'Paste')
-end
 
 -- bufferline
 keymap('n', '<C-h>', '<cmd>BufferLineCyclePrev<CR>')

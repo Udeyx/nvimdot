@@ -12,7 +12,7 @@ local plugins = {
     {
         'akinsho/bufferline.nvim',
         event = { 'BufRead', 'BufNewFile' },
-        version = 'v3.*',
+        version = '*',
         dependencies = 'nvim-tree/nvim-web-devicons',
         config = function() require 'plugins.ui.bufferline' end,
     },
@@ -41,6 +41,7 @@ local plugins = {
     },
     {
         'williamboman/mason.nvim',
+        build = ':MasonUpdate',
         config = function() require('mason').setup {} end,
     },
     {
