@@ -9,7 +9,7 @@ local options = {
         null.builtins.formatting.stylua,
         null.builtins.formatting.clang_format,
         null.builtins.formatting.autopep8,
-        null.builtins.formatting.prettierd,
+        null.builtins.formatting.prettier,
         null.builtins.formatting.rustfmt,
         null.builtins.formatting.gofmt,
         null.builtins.formatting.latexindent.with {
