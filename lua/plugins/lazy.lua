@@ -1,8 +1,9 @@
 local plugins = {
     -- UI
     {
-        'folke/tokyonight.nvim',
-        config = function() vim.cmd.colorscheme 'tokyonight' end,
+        'svrana/neosolarized.nvim',
+        dependencies = 'tjdevries/colorbuddy.nvim',
+        config = function() require('neosolarized').setup {} end,
     },
     {
         'glepnir/dashboard-nvim',
