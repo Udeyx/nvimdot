@@ -4,6 +4,7 @@ local options = {
         'c',
         'cpp',
         'css',
+        'elixir',
         'html',
         'java',
         'javascript',
