@@ -42,7 +42,7 @@ local options = {
     incsearch = true,
 
     -- hight of cmd
-    cmdheight = 0,
+    cmdheight = 1,
 
     -- go to previous/next line with h,l,left arrow and right arrow
     -- when cursor reaches end/beginning of line
