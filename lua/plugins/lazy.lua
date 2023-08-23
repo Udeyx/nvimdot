@@ -52,7 +52,7 @@ local plugins = {
         config = function() require 'plugins.language.lspconfig' end,
     },
     {
-        'glepnir/lspsaga.nvim',
+        'nvimdev/lspsaga.nvim',
         event = 'LspAttach',
         dependencies = {
             'nvim-tree/nvim-web-devicons',
@@ -61,13 +61,9 @@ local plugins = {
         config = function() require('lspsaga').setup {} end,
     },
     {
-        'jose-elias-alvarez/null-ls.nvim',
-        dependencies = {
-            'nvim-lua/plenary.nvim',
-            'jay-babu/mason-null-ls.nvim',
-        },
+        'nvimdev/guard.nvim',
         event = { 'BufRead', 'BufNewFile' },
-        config = function() require 'plugins.language.null' end,
+        config = function() require 'plugins.language.guard' end,
     },
     -- Completion
     {

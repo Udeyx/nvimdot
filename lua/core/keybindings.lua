@@ -35,10 +35,7 @@ M.telescope = {
 
 -- lsp
 -- Formatting
-M.lsp = function(mapbuf, bufopts)
-    mapbuf('n', '<space>f', function() vim.lsp.buf.format { async = true } end, bufopts)
-end
-
+keymap('n', '<leader>f', '<cmd>GuardFmt<CR>')
 -- Lsp finder
 keymap('n', 'gh', '<cmd>Lspsaga lsp_finder<CR>')
 -- Code action
