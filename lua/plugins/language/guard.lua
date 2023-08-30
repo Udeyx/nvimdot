@@ -1,7 +1,22 @@
 local ft = require 'guard.filetype'
 
 ft(
-    'javascript, javascriptreact, typescript, typescriptreact, vue, css, scss, less, html, json, jsonc, yaml, markdown, markdown.mdx, graphql, handlebars'
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+    'vue',
+    'css',
+    'scss',
+    'less',
+    'html',
+    'json',
+    'jsonc',
+    'yaml',
+    'markdown',
+    'markdown.mdx',
+    'graphql',
+    'handlebars'
 ):fmt 'prettier'
 ft('c', 'cpp', 'cs', 'cuda'):fmt 'clang-format'
 ft('python'):fmt 'black'
