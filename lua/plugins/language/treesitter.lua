@@ -25,11 +25,6 @@ local options = {
     highlight = { enable = true },
     autotag = { enable = true },
     endwise = { enable = true },
-    rainbow = {
-        enable = true,
-        query = 'rainbow-parens',
-        strategy = require('ts-rainbow').strategy.global,
-    },
 }
 
 require('nvim-treesitter.configs').setup(options)

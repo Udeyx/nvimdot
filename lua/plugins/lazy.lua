@@ -36,7 +36,6 @@ local plugins = {
         dependencies = {
             'RRethy/nvim-treesitter-endwise',
             'windwp/nvim-ts-autotag',
-            'HiPhish/nvim-ts-rainbow2',
         },
         config = function() require 'plugins.language.treesitter' end,
     },
