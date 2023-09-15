@@ -62,6 +62,7 @@ local plugins = {
     {
         'nvimdev/guard.nvim',
         event = { 'BufRead', 'BufNewFile' },
+        dependencies = 'nvimdev/guard-collection',
         config = function() require 'plugins.language.guard' end,
     },
     -- Completion
