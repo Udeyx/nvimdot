@@ -1,9 +1,18 @@
 local plugins = {
     -- UI
+    -- {
+    --     'svrana/neosolarized.nvim',
+    --     dependencies = 'tjdevries/colorbuddy.nvim',
+    --     config = function() require('neosolarized').setup {} end,
+    -- },
+    -- {
+    --     'rebelot/kanagawa.nvim',
+    --     config = function() vim.cmd 'colorscheme kanagawa' end,
+    -- },
     {
-        'svrana/neosolarized.nvim',
-        dependencies = 'tjdevries/colorbuddy.nvim',
-        config = function() require('neosolarized').setup {} end,
+        'catppuccin/nvim',
+        name = 'catppuccin',
+        config = function() vim.cmd.colorscheme 'catppuccin' end,
     },
     {
         'glepnir/dashboard-nvim',
