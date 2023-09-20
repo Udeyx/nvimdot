@@ -17,6 +17,7 @@ local servers = {
     prismals = default_config, -- Prisma
     pyright = default_config, -- Python
     rust_analyzer = default_config, -- Rust
+    sqlls = default_config, -- SQL
     taplo = default_config, -- Toml
     yamlls = default_config, -- Yaml
 }

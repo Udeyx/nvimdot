@@ -17,6 +17,7 @@ local options = {
         'python',
         'regex',
         'scss',
+        'sql',
         'toml',
         'tsx',
         'typescript',

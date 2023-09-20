@@ -23,6 +23,7 @@ ft('python'):fmt 'black'
 ft('lua'):fmt 'stylua'
 ft('sh'):fmt 'shfmt'
 ft('rust'):fmt 'rustfmt'
+ft('sql'):fmt 'sql-formatter'
 
 require('guard').setup {
     fmt_on_save = true,
