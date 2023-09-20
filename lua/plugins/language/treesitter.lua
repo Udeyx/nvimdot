@@ -13,6 +13,7 @@ local options = {
         'lua',
         'markdown',
         'markdown_inline',
+        'prisma',
         'python',
         'regex',
         'scss',

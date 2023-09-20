@@ -14,6 +14,7 @@ local servers = {
     texlab = require 'plugins.language.servers.texlab', -- LaTeX
     sumneko_lua = require 'plugins.language.servers.sumneko_lua', -- Lua
     marksman = default_config, -- Markdown
+    prismals = default_config, -- Prisma
     pyright = default_config, -- Python
     rust_analyzer = default_config, -- Rust
     taplo = default_config, -- Toml
