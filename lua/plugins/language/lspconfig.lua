@@ -18,7 +18,9 @@ local servers = {
     pyright = default_config, -- Python
     rust_analyzer = default_config, -- Rust
     sqlls = default_config, -- SQL
+    tailwindcss = default_config, -- Tailwind CSS
     taplo = default_config, -- Toml
+    volar = default_config, -- Vue
     yamlls = default_config, -- Yaml
 }
 
