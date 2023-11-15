@@ -10,6 +10,7 @@ local servers = {
     html = default_config, -- HTML
     jdtls = default_config, -- Java
     vtsls = default_config, -- JavaScript, TypeScript and ...
+    eslint = default_config, -- JavaScript, TypeScript and ...
     jsonls = default_config, -- Json
     texlab = require 'plugins.language.servers.texlab', -- LaTeX
     sumneko_lua = require 'plugins.language.servers.sumneko_lua', -- Lua
