@@ -4,7 +4,7 @@ ft(
     'javascript,javascriptreact,typescript,typescriptreact,vue,css,scss,less,html,json,jsonc,yaml,markdown,markdown.mdx,graphql,handlebars'
 ):fmt 'prettier'
 ft('c,cpp,cs,cuda'):fmt 'clang-format'
-ft('python'):fmt 'black'
+ft('python'):fmt('ruff'):lint 'ruff'
 ft('lua'):fmt 'stylua'
 ft('sh'):fmt 'shfmt'
 ft('rust'):fmt 'rustfmt'
